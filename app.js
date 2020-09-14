@@ -89,7 +89,31 @@ app.get('/cipher', (req, res) => {
       .send(cipher);  
   });
 
+app.get('/lotto', (req, res) => {
 
+    const { arr } = req.query;
+    const generatedArr = [];
+
+    arr = arr.map(num => parseInt(num));
+
+    for ( let i = 0; i < 6; i++ ) {
+        generatedArr.push(Math.floor(Math.random() * Math.floor(20)));
+    }
+
+    res.send(arr);
+
+
+    // if ( arr.length !== 6  || !arr.filter(num => {
+    //     if (!num > 0 && num <= 20) {
+    //         return num;
+    //     }
+    // })) {
+    //     return res.status(200).send('error');
+    // }
+
+
+
+});
 
 
 
